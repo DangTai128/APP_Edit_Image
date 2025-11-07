@@ -1,0 +1,31 @@
+body {
+  background-color: #444;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.intro-box {
+  position: fixed;
+  top: 70px; /* nằm dưới header */
+  left: 110px; /* sidebar rộng 60px + khoảng cách 10px */
+  width: calc(100vw - 120px); /* toàn màn hình trừ sidebar */
+  height: calc(100vh - 80px); /* toàn màn hình trừ header */
+  background-color: #000; /* nền đen */
+  color: white;
+  border-radius: 20px; /* bo tròn 4 góc */
+  padding: 30px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .intro-box {
+    margin-top: 70px; /* dưới header */
+    left: 10px; /* cách mép trái */
+    right: 10px; /* cách mép phải */
+    height: 70%; /* chiều cao tự động */
+    width: auto;
+    max-height: calc(100vh - 140px); /* trừ header và khoảng cách */
+    overflow-y: auto;
+  }
+}

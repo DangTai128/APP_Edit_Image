@@ -1,0 +1,142 @@
+.edit-form {
+  position: fixed;
+  top: 70px; 
+  right: 10px; 
+  width: 300px; 
+  height: calc(100vh - 80px);
+  background-color: #000000ff;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow-y: auto;
+  z-index: 998;
+}
+
+.edit-form h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.edit-form fieldset {
+  border: 1px dashed #888;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.edit-form fieldset legend {
+  padding: 0 10px;
+  font-weight: bold;
+}
+.edit-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.edit-form::-webkit-scrollbar {
+  width: 0px;
+}
+.edit-form input,
+.edit-form textarea,
+.edit-form select {
+  margin-bottom: 10px;
+  background-color: #444;       /* màu ghi đậm */
+  color: white;                 /* chữ trắng */
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 14px;
+  text-align: center;           /* canh giữa nội dung */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.edit-form input::placeholder,
+.edit-form textarea::placeholder {
+  color: #ccc;                  /* placeholder màu ghi nhạt */
+}
+
+.click-section {
+  display: flex;
+  align-items: center;     /* canh giữa theo chiều dọc */
+  margin-bottom: 15px;     /* khoảng cách với phần dưới */
+  color: white;            /* màu chữ nếu cần */
+  font-size: 14px;
+}
+.click-section input[type="checkbox"] {
+  margin-right: 20px;      /* khoảng cách giữa checkbox và label */
+  width: 16px;             /* kích thước checkbox */
+  height: 16px;            /* kích thước checkbox */
+}
+
+.edit-form button {
+  background-color: #444; /* màu nền nút */
+  color: white;              /* màu chữ nút */
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.edit-form button:hover {
+  background-color: #666; /* màu nền khi hover */
+}
+
+.save-continue-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.save-continue-buttons button {
+  flex: 1;
+}
+
+/* Responsive cho màn hình điện thoại */
+@media screen and (max-width: 768px) {
+  .edit-form {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Ẩn khỏi màn hình */
+    width: 80%;
+    height: 100vh;
+    background-color: #111;
+    z-index: 1000;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: right 0.3s ease-in-out;
+    overflow-y: auto;
+    border-radius: 0;
+  }
+
+  .edit-form.open {
+    right: 0; /* Trượt vào màn hình */
+  }
+
+  .edit-form .close-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+  }
+}
+
+/* Ẩn nút đóng trên màn hình lớn */
+@media screen and (min-width: 769px) {
+  .edit-form .close-btn {
+    display: none;
+  }
+}
+
+
+

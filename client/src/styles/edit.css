@@ -1,0 +1,82 @@
+.edit-center {
+  position: fixed;
+  top: 70px; /* dưới header */
+  left: 110px; /* cách sidebar 60px + 10px */
+  right: 320px; /* cách edit form bên phải */
+  height: calc(100vh - 80px); /* trừ header */
+  background-color: #000; /* nền đen */
+  border-radius: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+  color: white;
+  overflow-y: auto;
+}
+
+.inner-box {
+    height: 100%;
+    border: 4px dashed #555;
+    border-radius: 15px;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.edit-center h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.edit-center p {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.inner-box .image-preview-box {
+  padding: 0;
+  margin-top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 600px;
+}
+
+.preview-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Responsive cho thiết bị có chiều rộng nhỏ hơn hoặc bằng 768px */
+@media screen and (max-width: 768px) {
+  .edit-center {
+    margin-top: 70px; /* dưới header */
+    left: 10px; /* cách mép trái */
+    right: 10px; /* cách mép phải */
+    height: 70%; /* chiều cao tự động */
+    max-height: calc(100vh - 140px); /* trừ header và khoảng cách */
+    overflow-y: auto;
+  }
+  .open-form-btn {
+    position: fixed;
+    bottom: 10px;       /* phía trên sidebar gang */
+    right: 20px;        /* cách mép phải */
+    z-index: 1001;      /* nổi hơn các thành phần khác */
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .inner-box .image-preview-box {
+    padding: 20px;
+    min-height: 200px;
+  }
+
+}
+
