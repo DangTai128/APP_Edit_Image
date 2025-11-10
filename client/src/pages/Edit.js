@@ -111,13 +111,17 @@ const Edit = () => {
 
       <EditForm
         onImageChange={(file) => {
-          const url = URL.createObjectURL(file);
-          setOriginalImage(url);
+          if (file) {
+            const url = URL.createObjectURL(file);
+            setOriginalImage(url);
+          }
         }}
         onEditComplete={(blob) => {
-          const url = URL.createObjectURL(blob);
-          setEditedImage(url);
-          setIsFormOpen(false);
+          if (blob) {
+            const url = URL.createObjectURL(blob);
+            setEditedImage(url);
+            setIsFormOpen(false);
+          }
         }}
         isOpen={isFormOpen}
         onClose={() => setIsFormOpen(false)}

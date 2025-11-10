@@ -203,9 +203,11 @@ const EditForm = ({ onImageChange, onEditComplete, isOpen, onClose }) => {
 
     if (files) {
       const file = files[0];
-      setFormData((prev) => ({ ...prev, image: file }));
-      if (onImageChange) {
-        onImageChange(file);
+      if (file) {
+        setFormData((prev) => ({ ...prev, image: file }));
+        if (onImageChange) {
+          onImageChange(file);
+        }
       }
     } else if (group) {
       setFormData((prev) => ({
