@@ -98,6 +98,13 @@
   flex: 1;
 }
 
+.error-message {
+  color: #ff4d4d; /* Màu đỏ cho thông báo lỗi */
+  font-size: 14px;
+  margin-top: -8px;
+  margin-bottom: 10px;
+}
+
 /* Responsive cho màn hình điện thoại */
 @media screen and (max-width: 768px) {
   .edit-form {

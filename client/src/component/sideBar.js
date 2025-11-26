@@ -1,5 +1,5 @@
 import React from "react";
-import { FaHome, FaEdit, FaHistory, FaImage } from "react-icons/fa";
+import { FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "../styles/sideBar.css";
 
@@ -7,11 +7,11 @@ const SidebarTabs = () => {
   return (
     <div className="sidebar">
       <div className="tab-buttons">
-        <Link to="/" className="tab-button">
+        {/* <Link to="/" className="tab-button">
           <FaHome />
           <span>Home</span>
-        </Link>
-        <Link to="/edit" className="tab-button">
+        </Link> */}
+        <Link to="/" className="tab-button">
           <FaEdit />
           <span>Edit</span>
         </Link>
