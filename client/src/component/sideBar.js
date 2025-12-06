@@ -15,6 +15,10 @@ const SidebarTabs = () => {
           <FaEdit />
           <span>Edit</span>
         </Link>
+        {/* <Link to="/attack" className="tab-button">
+          <FaEdit />
+          <span>Attack Demo</span>
+        </Link> */}
         {/* <Link to="/history" className="tab-button">
           <FaHistory />
           <span>History</span>

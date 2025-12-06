@@ -21,15 +21,15 @@ exports.editImage = async (req, res) => {
   // Kiểm tra MIME type
   const fileMime = req.file.mimetype;
   if (!allowedTypes.includes(fileMime)) {
-    fs.unlinkSync(req.file.path); // xóa file nguy hiểm
+    fs.unlinkSync(req.file.path);
     return res.status(400).json({ error: "Chỉ cho phép file ảnh (JPG, PNG, WebP, GIF)" });
   }
 
-  const inputPath = req.file.path;
-  const outputDir = path.join(__dirname, "..", "outputs");
-  if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir);
+  // const inputPath = req.file.path;
+  // const outputDir = path.join(__dirname, "..", "outputs");
+  // if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir);
 
-  const outputPath = path.join(outputDir, `${Date.now()}_edited.jpg`);
+  // const outputPath = path.join(outputDir, `${Date.now()}_edited.jpg`);
 
   const payload = {
     imagePath: inputPath,

