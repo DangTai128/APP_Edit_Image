@@ -1,9 +1,9 @@
-
 const { execFile } = require("child_process");
 const path = require("path");
 const fs = require("fs");
 const mime = require("mime-types");
 const EditedImage = require("../models/editedImage");
+const multer = require("multer");
 
 const allowedTypes = [
   "image/jpeg",
@@ -13,23 +13,42 @@ const allowedTypes = [
   "image/gif"
 ];
 
+const upload = multer({
+  limits: { fileSize: 2 * 1024 * 1024 },
+  fileFilter: (req, file, cb) => {
+    if (allowedTypes.includes(file.mimetype)) {
+      cb(null, true);
+    } else {
+      cb(new Error("Chỉ cho phép file ảnh (JPG, PNG, WebP, GIF)"));
+    }
+  },
+  storage: multer.diskStorage({
+    destination: (req, file, cb) => {
+      cb(null, path.join(__dirname, "..", "uploads"));
+    },
+    filename: (req, file, cb) => {
+      cb(null, `${Date.now()}_${file.originalname}`);
+    }
+  })
+});
+
 exports.editImage = async (req, res) => {
   if (!req.file) {
     return res.status(400).json({ error: "Không có file được upload" });
   }
 
   // Kiểm tra MIME type
-  const fileMime = req.file.mimetype;
-  if (!allowedTypes.includes(fileMime)) {
-    fs.unlinkSync(req.file.path);
-    return res.status(400).json({ error: "Chỉ cho phép file ảnh (JPG, PNG, WebP, GIF)" });
-  }
+  // const fileMime = req.file.mimetype;
+  // if (!allowedTypes.includes(fileMime)) {
+  //   fs.unlinkSync(req.file.path);
+  //   return res.status(400).json({ error: "Chỉ cho phép file ảnh (JPG, PNG, WebP, GIF)" });
+  // }
 
-  // const inputPath = req.file.path;
-  // const outputDir = path.join(__dirname, "..", "outputs");
-  // if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir);
+  const inputPath = req.file.path;
+  const outputDir = path.join(__dirname, "..", "outputs");
+  if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir);
 
-  // const outputPath = path.join(outputDir, `${Date.now()}_edited.jpg`);
+  const outputPath = path.join(outputDir, `${Date.now()}_edited.jpg`);
 
   const payload = {
     imagePath: inputPath,
@@ -73,8 +92,8 @@ exports.editImage = async (req, res) => {
     // Gửi file về client
     const mimeType = mime.lookup(outputPath) || "image/jpeg";
     res.setHeader("Content-Type", mimeType);
+    // Xóa
     res.sendFile(path.resolve(outputPath), () => {
-      // Dọn dẹp file tạm
       fs.unlinkSync(inputPath);
       if (fs.existsSync(outputPath)) fs.unlinkSync(outputPath);
     });

@@ -21,7 +21,7 @@ const EditForm = ({ onImageChange, onEditComplete, isOpen, onClose, editedBlob})
 
     if (files && files[0]) {
       const file = files[0];
-           if (!allowedTypes.includes(file.type)) {
+        if (!allowedTypes.includes(file.type)) {
         setFileError("Định dạng file không hợp lệ. Vui lòng chọn ảnh JPG, PNG, WEBP hoặc GIF.");
         setFormData((prev) => ({ ...prev, image: null }));
         if (onImageChange) {
