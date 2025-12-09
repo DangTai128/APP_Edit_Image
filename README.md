@@ -28,7 +28,7 @@
 
 ### Bước 1: Clone repository và di chuyển vào thư mục dự án
 ```bash
-git clone <link-repo-của-bạn>
+git clone (https://github.com/DangTai128/APP_Edit_Image.git)
 cd ten-thu-muc-du-an
 ```
 
