@@ -67,6 +67,11 @@ npm start
 Client sẽ chạy tại: `http://localhost:3000`
 
 ---
+Kết quả Demo:
+![Demo tấn công bằng file ảnh chứa mã độc](Picture1.png)
+![Demo chọn file đúng định dạng và kích thước](Picture2.png)
+![Demo chọn sai kích thước file](Picture3.png)
+![Demo chọn sai định dạng file](Picture4.png)
 
                         
   
