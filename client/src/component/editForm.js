@@ -12,7 +12,8 @@ const EditForm = ({ onImageChange, onEditComplete, isOpen, onClose, editedBlob})
     filter: "",
     textOverlay: { text: "", x: "", y: "" },
   });
-
+  
+  const MAX_FILE_SIZE = 2 * 1024 * 1024;
   const [fileError, setFileError] = useState("");
   const allowedTypes = ["image/jpeg", "image/jpg", "image/png", "image/webp", "image/gif"];
 
@@ -30,6 +31,17 @@ const EditForm = ({ onImageChange, onEditComplete, isOpen, onClose, editedBlob})
         e.target.value = null;
         return;
       }
+
+      if (file.size > MAX_FILE_SIZE) {
+        setFileError("Kích thước file vượt quá 2MB. Vui lòng chọn ảnh khác.");
+        setFormData((prev) => ({ ...prev, image: null }));
+        if (onImageChange) {
+          onImageChange(null);
+        }
+        e.target.value = null;
+        return;
+      }
+      
       setFileError("");
       setFormData((prev) => ({ ...prev, image: file }));
       if (onImageChange) {

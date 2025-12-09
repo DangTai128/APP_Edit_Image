@@ -32,6 +32,8 @@ const upload = multer({
   })
 });
 
+exports.upload = upload;
+
 exports.editImage = async (req, res) => {
   if (!req.file) {
     return res.status(400).json({ error: "Không có file được upload" });
