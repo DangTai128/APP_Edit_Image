@@ -12,7 +12,7 @@ body
   right: 320px; /* cách edit form bên phải */
   height: calc(100vh - 80px); /* trừ header */
   background-color: #000; /* nền đen */
-  border-radius: 20px;
+  border-radius: 13px;
   padding: 20px;
   box-sizing: border-box;
   color: white;

@@ -74,6 +74,11 @@ const EditForm = ({ onImageChange, onEditComplete, isOpen, onClose, editedBlob})
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!formData.image) {
+      alert("Vui lòng chọn một file ảnh trước khi áp dụng!");
+      return;
+    }
+
     const data = new FormData();
     data.append("image", formData.image);
     data.append("resize", JSON.stringify(formData.resize));
@@ -89,6 +94,12 @@ const EditForm = ({ onImageChange, onEditComplete, isOpen, onClose, editedBlob})
         method: "POST",
         body: data,
       });
+
+      if (!res.ok) {
+        const errorData = await res.json();
+        alert(`Lỗi từ hệ thống: ${errorData.error || "Không thể xử lý ảnh"}`);
+        return;
+      }
 
       const blob = await res.blob();
       if (onEditComplete) {

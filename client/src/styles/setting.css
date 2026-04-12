@@ -1,10 +1,5 @@
-body {
-  background-color: #444;
-  margin: 0;
-  font-family: Arial, sans-serif;
-}
 
-.intro-box {
+.setting-box {
   position: fixed;
   top: 70px; /* nằm dưới header */
   left: 110px; /* sidebar rộng 60px + khoảng cách 10px */
@@ -20,7 +15,7 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-  .intro-box {
+  .setting-box {
     margin-top: 70px; /* dưới header */
     left: 10px; /* cách mép trái */
     right: 10px; /* cách mép phải */
