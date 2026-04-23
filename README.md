@@ -65,7 +65,6 @@ JWT_SECRET=yourSuperSecretKey
 MongoURI=mongodb://localhost:27017/App_edit_image
 ```
 
-<<<<<<< HEAD
 ### 3. Cài đặt Frontend
 Di chuyển vào thư mục `client` và cài đặt:
 ```bash
