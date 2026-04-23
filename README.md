@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Photo Edit Application
 
 Ứng dụng chỉnh sửa ảnh trực tuyến được xây dựng với MERN Stack (MongoDB, Express, React, Node.js). Ứng dụng cho phép người dùng đăng ký tài khoản, đăng nhập và thực hiện các thao tác chỉnh sửa ảnh như thay đổi kích thước, xoay, làm mờ, và áp dụng các bộ lọc màu.
@@ -200,4 +199,3 @@ npm start
 - File chạy chính của server là `server/server.js`.
 - Các ảnh sau khi chỉnh sửa sẽ được xử lý qua API `/api/image/edit`.
 - Có thể sử dụng các chức năng chỉnh sửa ảnh mà không cần đăng nhập hay đăng ký tài khoản.
->>>>>>> 66db4e8c18dad9cade7282ab897ff049fe87a86e
