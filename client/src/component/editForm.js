@@ -12,7 +12,8 @@ const EditForm = ({ onImageChange, onEditComplete, isOpen, onClose, editedBlob})
     filter: "",
     textOverlay: { text: "", x: "", y: "" },
   });
-
+  
+  const MAX_FILE_SIZE = 2 * 1024 * 1024;
   const [fileError, setFileError] = useState("");
   const allowedTypes = ["image/jpeg", "image/jpg", "image/png", "image/webp", "image/gif"];
 
@@ -30,6 +31,17 @@ const EditForm = ({ onImageChange, onEditComplete, isOpen, onClose, editedBlob})
         e.target.value = null;
         return;
       }
+
+      if (file.size > MAX_FILE_SIZE) {
+        setFileError("Kích thước file vượt quá 2MB. Vui lòng chọn ảnh khác.");
+        setFormData((prev) => ({ ...prev, image: null }));
+        if (onImageChange) {
+          onImageChange(null);
+        }
+        e.target.value = null;
+        return;
+      }
+      
       setFileError("");
       setFormData((prev) => ({ ...prev, image: file }));
       if (onImageChange) {
@@ -62,6 +74,11 @@ const EditForm = ({ onImageChange, onEditComplete, isOpen, onClose, editedBlob})
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!formData.image) {
+      alert("Vui lòng chọn một file ảnh trước khi áp dụng!");
+      return;
+    }
+
     const data = new FormData();
     data.append("image", formData.image);
     data.append("resize", JSON.stringify(formData.resize));
@@ -77,6 +94,12 @@ const EditForm = ({ onImageChange, onEditComplete, isOpen, onClose, editedBlob})
         method: "POST",
         body: data,
       });
+
+      if (!res.ok) {
+        const errorData = await res.json();
+        alert(`Lỗi từ hệ thống: ${errorData.error || "Không thể xử lý ảnh"}`);
+        return;
+      }
 
       const blob = await res.blob();
       if (onEditComplete) {

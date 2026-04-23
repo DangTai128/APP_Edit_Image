@@ -5,21 +5,25 @@ import {
   Route,
 } from 'react-router-dom';
 
-//import Home from './pages/Home';
+import Home from './pages/Home';
 import Edit from './pages/Edit';
-//import History from './pages/History';
-//import Gallery from './pages/Gallery';
-//import AttackPage from './pages/AttackPage';
+import Login from './pages/Login';
+import Account from './pages/Account';
+import Setting from './pages/Setting';
+import History from './pages/History';
+import Register from './pages/Register';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* <Route path="/" element={<Home />} /> */}
-        <Route path="/" element={<Edit />} />
-        {/* <Route path="/attack" element={<AttackPage />} /> */}
-        {/* <Route path="/history" element={<History />} />
-        <Route path="/gallery" element={<Gallery />} /> */}
+        <Route path="/" element={<Home />} />
+        <Route path="/edit" element={<Edit />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/account" element={<Account />} />
+        <Route path="/setting" element={<Setting />} />
+        <Route path="/history" element={<History />} />
       </Routes>
     </BrowserRouter>
   );

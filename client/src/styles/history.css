@@ -1,24 +1,32 @@
-.history-box {
+.history-center {
   position: fixed;
-  top: 70px; /* nằm dưới header */
-  left: 110px; /* sidebar rộng 60px + khoảng cách 10px */
-  width: calc(100vw - 120px); /* toàn màn hình trừ sidebar */
-  height: calc(100vh - 80px); /* toàn màn hình trừ header */
-  background-color: #000; /* nền đen */
+  top: 70px;
+  left: 110px;
+  width: calc(100vw - 120px); 
+  height: calc(100vh - 80px); 
+  background-color: #000; 
   color: white;
-  border-radius: 20px; /* bo tròn 4 góc */
+  border-radius: 13px;
   padding: 30px;
   box-sizing: border-box;
   overflow-y: auto;
 }
+
+.history-content {
+  background-color: #e01111;
+  height: 339px;
+  width: 601px;
+  border-radius: 10px;
+}
+
 @media screen and (max-width: 768px) {
-  .history-box {
-    margin-top: 70px; /* dưới header */
-    left: 10px; /* cách mép trái */
-    right: 10px; /* cách mép phải */
-    height: 70%; /* chiều cao tự động */
+  .history-center {
+    margin-top: 70px; 
+    left: 10px; 
+    right: 10px; 
+    height: 70%; 
     width: auto;
-    max-height: calc(100vh - 140px); /* trừ header và khoảng cách */
+    max-height: calc(100vh - 140px); 
     overflow-y: auto;
   }
 }
