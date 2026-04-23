@@ -43,27 +43,6 @@ npm install
 
 **Cấu hình biến môi trường:**
 Tạo file `.env` trong thư mục `server/` (nếu chưa có) và copy nội dung sau:
-=======
-# 🖼️ Image Editor & Upload Security Application
-
-## 👥 Danh sách thành viên
-
-| Họ và tên | MSSV |
-|-----------|------|
-| Lương Anh Quân | 22810310380 |
-| Đặng Anh Tài | 22810310385 |
-
-## 🔧 Phân chia công việc
-
-### Lương Anh Quân
-- ✅ Tìm hiểu về các cách thức bảo mật dữ liệu tải lên (File Upload Security)
-- ✅ Tạo trang `editForm.js` bên phía client
-
-### Đặng Anh Tài
-- ✅ Tìm hiểu về các cách thức tấn công thông qua dữ liệu tải lên
-- ✅ Tạo `imageController.js` và liên kết với Database bên phía server
-- ✅ Demo tấn công thông qua dữ liệu tải lên
-
 ## 🚀 Hướng dẫn sử dụng
 
 ### Yêu cầu hệ thống
@@ -120,49 +99,3 @@ npm start
 - File chạy chính của server là `server/server.js`.
 - Các ảnh sau khi chỉnh sửa sẽ được xử lý qua API `/api/image/edit`.
 - Có thể sử dụng các chức năng chỉnh sửa ảnh mà không cần đăng nhập hay đăng ký tài khoản.
-=======
-### Bước 3: Khởi động MongoDB
-```bash
-# Windows
-net start MongoDB
-
-# Linux/Mac
-sudo service mongod start
-```
-
-### Bước 4: Cài đặt và chạy Backend
-```bash
-cd server
-npm install
-npm start
-```
-Server sẽ chạy tại: `http://localhost:5000`
-
-### Bước 5: Cài đặt và chạy Frontend
-Mở terminal mới:
-```bash
-cd client
-npm install
-npm start
-```
-Client sẽ chạy tại: `http://localhost:3000`
-
----
-
-## 📸 Demo ứng dụng
-
-### Demo tấn công bằng file ảnh chứa mã độc
-![Demo tấn công bằng file ảnh chứa mã độc](Picture1.png)
-
-### Demo chọn file đúng định dạng và kích thước
-![Demo chọn file đúng định dạng và kích thước](Picture2.png)
-
-### Demo chọn sai kích thước file
-![Demo chọn sai kích thước file](Picture3.png)
-
-### Demo chọn sai định dạng file
-![Demo chọn sai định dạng file](Picture4.png)
-
-                        
-  
->>>>>>> b89ba5fbf8a3b0bf61c9e6ffea1697d848f0f97a
